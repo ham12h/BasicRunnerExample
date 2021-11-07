@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] GameObject player;       
+
+
+    private Vector3 offset;            
+
+    // Use this for initialization
+    void Start () 
     {
         
+        offset = transform.position - player.transform.position;
     }
 
-    // Update is called once per frame
-    void Update()
+    // LateUpdate is called after Update each frame
+    void LateUpdate () 
     {
         
+        transform.position = player.transform.position + offset;
     }
 }
